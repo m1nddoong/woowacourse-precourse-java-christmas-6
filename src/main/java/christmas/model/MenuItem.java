@@ -5,14 +5,16 @@ package christmas.model;
 //}
 
 public class MenuItem {
-    private final String menuName;
-    private final int price;
-    private final int quantity;
+    private String menuName;
+    private int price;
+    private int quantity;
+    private boolean isBenefit;
 
-    public MenuItem(String menuName, int price, int quantity) {
+    public MenuItem(String menuName, int price, int quantity, boolean isBenefit) {
         this.menuName = menuName;
         this.price = price;
         this.quantity = quantity;
+        this.isBenefit = isBenefit;
     }
 
     public String getMenuName() {
@@ -25,6 +27,18 @@ public class MenuItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public boolean getIsBenefit() {
+        return isBenefit;
+    }
+
+    public void setIsBenefit(boolean isBenefit) {
+        this.isBenefit = isBenefit;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     // equals(), hashCode(), toString() 등의 메서드는 자동으로 생성됨

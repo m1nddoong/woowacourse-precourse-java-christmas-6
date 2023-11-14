@@ -27,11 +27,12 @@ public class InputView {
             if (parts.length == 2) {
                 String menuName = parts[0].trim(); // 음식 종류 (앞뒤 공백 제거)
                 int quantity = Integer.parseInt(parts[1].trim()); // 음식 양
-                MenuItem myMenu = new MenuItem(menuName, findPrice(menuName), quantity);
+                MenuItem myMenu = new MenuItem(menuName, findPrice(menuName), quantity, false);
                 orderList.add(myMenu);
             }
         }
 
         return orderList;
     }
+
 }
