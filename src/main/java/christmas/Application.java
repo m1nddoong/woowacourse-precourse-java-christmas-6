@@ -25,7 +25,7 @@ public class Application {
         sum = outputView.presentationMenu(myorderList, sum);
 
         //혜택 내역
-        outputView.BenefitDetails(myorderList, date);
+        outputView.BenefitDetails(myorderList, date, sum);
 
     }
 }

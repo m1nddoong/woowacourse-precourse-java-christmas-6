@@ -50,7 +50,7 @@ public class OutputView {
         return sum;
     }
 
-    public void BenefitDetails(List<MenuItem> myorderList, int date) {
+    public void BenefitDetails(List<MenuItem> myorderList, int date, int sum) {
         System.out.println();
         System.out.println("<혜택 내역>");
         System.out.println("크리스마스 디데이 할인:");
@@ -60,7 +60,6 @@ public class OutputView {
             if (date >= 1 && date <= 31 && date % 7 >= 1 && date % 7 <= 5) {
                 int count = 0;
                 String category = Menu.getCategory(menuItem.getMenuName()); // 카테고리 반환해줌
-                System.out.println(category);
                 if ("디저트".equals(category)) {
                     count++;
                     // 해당 메뉴의 가격에서 할인 적용
@@ -68,11 +67,18 @@ public class OutputView {
                     menuItem.setPrice(discountedPrice);
                 }
                 if (count != 0) {
-                    System.out.println("평일 할인: -" + 2023 * count);
+                    System.out.println("평일 할인: -" + count * 2 + ",0" + (2023 * count - 2000 * count) + "원");
                 }
             }
         }
-        System.out.println("특별 할인:");
+
+        // 특별 할인 적용
+        if (date == 3 || date == 10 || date == 17 || date == 24 || date == 25 || date == 31) {
+            sum -= 1000;
+            System.out.println("특별 할인: -1,000원");
+        }
+
+
         for (MenuItem menuItem : myorderList) {
             if (menuItem.getIsBenefit()) {
                 System.out.println("증정 이벤트: -25,000원");
