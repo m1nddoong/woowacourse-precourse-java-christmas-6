@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
+
     public int readDate() {
         System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너 입니다.");
         System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
@@ -18,7 +19,7 @@ public class InputView {
         String input = Console.readLine(); // 입력 받기
         String[] menuItems = input.split(","); // 쉼표로 구분하여 배열 menuItems 으로 저장
 
-        List<MenuItem> orderList = new ArrayList<>(); // Menu 클래스 형 리스트 선언
+        List<MenuItem> orderList = new ArrayList<>(); // Menu 클래스형 리스트 선언
 
         for (String menuItem : menuItems) {  // 배열 menuItems 의 menuItem 하나씩
             String[] parts = menuItem.split("-"); // "-" 로 구분
@@ -30,14 +31,6 @@ public class InputView {
                 orderList.add(myMenu);
             }
         }
-
-        // 주문 목록 출력
-//        for (MenuItem menuItem : orderList) {
-//            System.out.println("메뉴 이름: " + menuItem.getMenuName());
-//            System.out.println("가격: " + menuItem.getPrice());
-//            System.out.println("수량: " + menuItem.getQuantity());
-//            System.out.println("------------------------");
-//        }
 
         return orderList;
     }
