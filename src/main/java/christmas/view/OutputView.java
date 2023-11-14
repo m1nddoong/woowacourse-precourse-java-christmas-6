@@ -1,4 +1,4 @@
-package view;
+package christmas.view;
 
 public class OutputView {
     public void printMenu() {
