@@ -130,7 +130,11 @@ public class OutputView {
         System.out.println("-" + discount + "원");
     }
 
-
+    public void EstimatedPayment (int sum, int discount) {
+        System.out.println();
+        System.out.println("<할인 후 예상 결제 금액");
+        System.out.println((sum - discount)+ "원");
+    }
 
 }
 

@@ -32,5 +32,10 @@ public class Application {
         //총혜택 금액
         outputView.TotalBenefitAmount(discount);
 
+        //할인 후 예상 결제 금액
+        outputView.EstimatedPayment(sum, discount);
+
+
+
     }
 }
