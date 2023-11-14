@@ -14,6 +14,7 @@ public class Application {
 
         OutputView outputView = new OutputView();
         outputView.printMenu(myorderList);
+        outputView.MoneyBeforeDiscount(myorderList);
     }
 
 
