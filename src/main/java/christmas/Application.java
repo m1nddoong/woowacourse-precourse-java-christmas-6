@@ -21,11 +21,16 @@ public class Application {
         //할인 전 총주문 금액
         int sum = outputView.MoneyBeforeDiscount(myorderList);
 
-        //증정 메뉴
-        sum = outputView.presentationMenu(myorderList, sum);
+        int discount = 0;
+
+        //증정 메뉴 (할인 금액으로 축적 시키기)
+        discount = outputView.presentationMenu(myorderList, sum, discount);
 
         //혜택 내역
-        outputView.BenefitDetails(myorderList, date, sum);
+        discount = outputView.BenefitDetails(myorderList, date, discount);
+
+        //총혜택 금액
+        outputView.TotalBenefitAmount(discount);
 
     }
 }
