@@ -35,6 +35,8 @@ public class Application {
         //할인 후 예상 결제 금액
         outputView.EstimatedPayment(sum, discount);
 
+        //12월 이벤트 배지
+        outputView.EventBadge(discount);
 
 
     }

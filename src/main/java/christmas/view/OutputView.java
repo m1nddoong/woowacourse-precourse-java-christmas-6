@@ -132,9 +132,26 @@ public class OutputView {
 
     public void EstimatedPayment (int sum, int discount) {
         System.out.println();
-        System.out.println("<할인 후 예상 결제 금액");
+        System.out.println("<할인 후 예상 결제 금액>");
         System.out.println((sum - discount)+ "원");
     }
 
+    public void EventBadge(int discount) {
+        System.out.println();
+        System.out.println("<12월 이벤트 배지>");
+        if (discount > 20000) {
+            System.out.println("산타");
+            return;
+        }
+
+        if (discount > 10000) {
+            System.out.println("트리");
+            return;
+        }
+
+        if (discount > 5000) {
+            System.out.println("별");
+        }
+    }
 }
 
