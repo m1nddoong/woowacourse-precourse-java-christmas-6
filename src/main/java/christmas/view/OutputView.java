@@ -53,7 +53,14 @@ public class OutputView {
     public void BenefitDetails(List<MenuItem> myorderList, int date, int sum) {
         System.out.println();
         System.out.println("<혜택 내역>");
-        System.out.println("크리스마스 디데이 할인:");
+
+
+        int christmasDiscount = 1000 + 100 * (date-1);
+        sum -= christmasDiscount;
+        int thousand = christmasDiscount / 1000;
+        int reamining = christmasDiscount % 1000;
+        System.out.println("크리스마스 디데이 할인: -" + thousand + "," + reamining + "원");
+
 
         for (MenuItem menuItem : myorderList) {
             // 평일인지 아닌지 판단
