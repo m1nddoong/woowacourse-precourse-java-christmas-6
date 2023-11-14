@@ -10,8 +10,14 @@ public class InputView {
     public int readDate() {
         System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너 입니다.");
         System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
-        String input = Console.readLine();
-        return Integer.parseInt(input);
+
+        try {
+            String input = Console.readLine();
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            return readDate(); // 재귀 호출을 통해 다시 입력 받음
+        }
     }
 
     public List<MenuItem> readMenu() {
@@ -25,14 +31,20 @@ public class InputView {
             String[] parts = menuItem.split("-"); // "-" 로 구분
 
             if (parts.length == 2) {
-                String menuName = parts[0].trim(); // 음식 종류 (앞뒤 공백 제거)
-                int quantity = Integer.parseInt(parts[1].trim()); // 음식 양
-                MenuItem myMenu = new MenuItem(menuName, findPrice(menuName), quantity, false);
-                orderList.add(myMenu);
+                try {
+                    String menuName = parts[0].trim(); // 음식 종류 (앞뒤 공백 제거)
+                    int quantity = Integer.parseInt(parts[1].trim()); // 음식 양
+                    MenuItem myMenu = new MenuItem(menuName, findPrice(menuName), quantity, false);
+                    orderList.add(myMenu);
+                } catch (NumberFormatException e) {
+                    System.out.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+                    return readMenu(); // 재귀 호출을 통해 다시 입력 받음
+                }
             }
         }
 
         return orderList;
     }
+
 
 }

@@ -38,6 +38,5 @@ public class Application {
         //12월 이벤트 배지
         outputView.EventBadge(discount);
 
-
     }
 }

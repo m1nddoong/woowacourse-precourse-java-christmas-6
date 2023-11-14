@@ -47,6 +47,11 @@ public class OutputView {
             MenuItem champagne = new MenuItem("샴페인", 0, 1, true);
             myorderList.add(champagne); // 샴페인 객체를 주문목록에 추가
         }
+
+        if (discount == 0) {
+            System.out.println("없음");
+        }
+
         return discount;
     }
 
@@ -54,13 +59,14 @@ public class OutputView {
         System.out.println();
         System.out.println("<혜택 내역>");
 
-
-        int christmasDiscount = 1000 + 100 * (date-1);
-        discount += christmasDiscount;
-        int thousand = christmasDiscount / 1000;
-        int reamining = christmasDiscount % 1000;
-        System.out.println("크리스마스 디데이 할인: -" + thousand + "," + reamining + "원");
-
+        // 크리스마스 디데이 할인
+        if(date >= 1 && date <= 25){
+            int christmasDiscount = 1000 + 100 * (date-1);
+            discount += christmasDiscount;
+            int thousand = christmasDiscount / 1000;
+            int reamining = christmasDiscount % 1000;
+            System.out.println("크리스마스 디데이 할인: -" + thousand + "," + reamining + "원");
+        }
 
         // 평일 할인 적용
         for (MenuItem menuItem : myorderList) {
@@ -77,6 +83,7 @@ public class OutputView {
                     // 할인 가격 축적
                     discount += 2023;
                 }
+
                 if (weekdayCount != 0) {
                     System.out.println("평일 할인: -" + weekdayCount * 2 + ",0" + (2023 * weekdayCount - 2000 * weekdayCount) + "원");
                 }
@@ -96,6 +103,7 @@ public class OutputView {
                     // 할인 가격 축적
                     discount += 2023;
                 }
+
                 if (weekendCount != 0) {
                     System.out.println("주말 할인: -" + weekendCount * 2 + ",0" + (2023 * weekendCount - 2000 * weekendCount) + "원");
                 }
@@ -116,8 +124,14 @@ public class OutputView {
                 System.out.println("증정 이벤트: -25,000원");
             }
         }
+
+        if (discount == 0) {
+            System.out.println("없음");
+        }
+
         return discount;
     }
+
     // 주말 여부를 확인하는 메서드
     private boolean isWeekend(int date) {
         return date == 1 || date == 2 || date == 8 || date == 9 || date == 15 || date == 16 || date == 22 || date == 23 || date == 29 || date == 30;
@@ -151,6 +165,11 @@ public class OutputView {
 
         if (discount > 5000) {
             System.out.println("별");
+            return;
+        }
+
+        if (discount < 5000) {
+            System.out.println("없음");
         }
     }
 }
