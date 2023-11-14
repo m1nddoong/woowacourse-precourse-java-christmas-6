@@ -58,19 +58,37 @@ public class OutputView {
         for (MenuItem menuItem : myorderList) {
             // 평일인지 아닌지 판단
             if (date >= 1 && date <= 31 && date % 7 >= 1 && date % 7 <= 5) {
-                int count = 0;
+                int weekdayCount = 0;
                 String category = Menu.getCategory(menuItem.getMenuName()); // 카테고리 반환해줌
                 if ("디저트".equals(category)) {
-                    count++;
+                    weekdayCount++;
                     // 해당 메뉴의 가격에서 할인 적용
                     int discountedPrice = menuItem.getPrice() - 2023;
                     menuItem.setPrice(discountedPrice);
                 }
-                if (count != 0) {
-                    System.out.println("평일 할인: -" + count * 2 + ",0" + (2023 * count - 2000 * count) + "원");
+                if (weekdayCount != 0) {
+                    System.out.println("평일 할인: -" + weekdayCount * 2 + ",0" + (2023 * weekdayCount - 2000 * weekdayCount) + "원");
                 }
             }
         }
+
+        // 주말 할인 적용
+        if (isWeekend(date)) {
+            int weekendCount = 0;
+            for (MenuItem menuItem : myorderList) {
+                String category = Menu.getCategory(menuItem.getMenuName()); // 카테고리 반환해줌
+                if ("메인".equals(category)) {
+                    weekendCount++;
+                    int discountedPrice = menuItem.getPrice() - 2023;
+                    menuItem.setPrice(discountedPrice);
+                }
+                if (weekendCount != 0) {
+                    System.out.println("주말 할인: -" + weekendCount * 2 + ",0" + (2023 * weekendCount - 2000 * weekendCount) + "원");
+                }
+
+            }
+        }
+
 
         // 특별 할인 적용
         if (date == 3 || date == 10 || date == 17 || date == 24 || date == 25 || date == 31) {
@@ -85,5 +103,10 @@ public class OutputView {
             }
         }
     }
+    // 주말 여부를 확인하는 메서드
+    private boolean isWeekend(int date) {
+        return date == 1 || date == 2 || date == 8 || date == 9 || date == 15 || date == 16 || date == 22 || date == 23 || date == 29 || date == 30;
+    }
+
 }
 

@@ -30,18 +30,18 @@ public class Menu {
 
     private static Map<String, String> createMenuAndCategoryMap() {
         Map<String, String> menuAndCategory = new HashMap<>();
-        menuAndCategory.put("양송이수프", "스프");
-        menuAndCategory.put("타파스", "안주");
-        menuAndCategory.put("시저샐러드", "샐러드");
-        menuAndCategory.put("티본스테이크", "스테이크");
-        menuAndCategory.put("바비큐립", "스테이크");
-        menuAndCategory.put("해산물파스타", "파스타");
-        menuAndCategory.put("크리스마스파스타", "파스타");
+        menuAndCategory.put("양송이수프", "에피타이저");
+        menuAndCategory.put("타파스", "에피타이저");
+        menuAndCategory.put("시저샐러드", "에피타이저");
+        menuAndCategory.put("티본스테이크", "메인");
+        menuAndCategory.put("바비큐립", "메인");
+        menuAndCategory.put("해산물파스타", "메인");
+        menuAndCategory.put("크리스마스파스타", "메인");
         menuAndCategory.put("초코케이크", "디저트");
         menuAndCategory.put("아이스크림", "디저트");
         menuAndCategory.put("제로콜라", "음료");
-        menuAndCategory.put("레드와인", "와인");
-        menuAndCategory.put("샴페인", "와인");
+        menuAndCategory.put("레드와인", "음료");
+        menuAndCategory.put("샴페인", "음료");
         return menuAndCategory;
     }
 
